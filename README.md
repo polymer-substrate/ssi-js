@@ -1,0 +1,1 @@
+WIP: A tiny, universal client for the SSI Service written in Typescript.
