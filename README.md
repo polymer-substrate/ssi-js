@@ -5,7 +5,7 @@
 This repository contains a tiny, universal client for interacting with [TBD's SSI Service](https://github.com/TBD54566975/ssi-service).
 
 ## Installation
-Since this SDK is still in early stages, we haven't yet published to npm. Until then, we suggest using [`npm link`](https://docs.npmjs.com/cli/v8/commands/npm-link) to use this SDK in your own project. Steps:
+Since this client is still in early stages, we haven't yet published to npm. Until then, we suggest using [`npm link`](https://docs.npmjs.com/cli/v8/commands/npm-link) to use this in your own project. Steps:
 
 ```bash
 # clone this repo somewhere
