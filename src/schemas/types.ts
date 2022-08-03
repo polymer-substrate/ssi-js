@@ -1,5 +1,9 @@
 type Property = Record<string, string>
 
+type Id = {
+  '$id': string
+}
+
 type Schema = {
   '$schema': string,
   description: string,
@@ -12,7 +16,7 @@ type Schema = {
 export type SchemaInput = {
   author: string,
   name: string,
-  schema: Schema
+  schema: Id & Schema
 }
 
 export type SchemaOutput = {
@@ -24,6 +28,6 @@ export type SchemaOutput = {
     name: string,
     author: string,
     authored: string,
-    schema: Schema
+    schema: Id & Schema
   }
 }
