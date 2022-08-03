@@ -32,11 +32,11 @@ import SSI from 'ssi-js'
 
 const SSIClient = new SSI()
 
-DevToClient.getHealth().then((data) => {
+SSIClient.getHealth().then((data) => {
     console.log(data)
 })
 
-DevToClient.getReadiness().then((data) => {
+SSIClient.getReadiness().then((data) => {
     console.log(data)
 })
 ```
