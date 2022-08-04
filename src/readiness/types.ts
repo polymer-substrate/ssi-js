@@ -1,8 +1,4 @@
-export type Health = {
-  status: string,
-}
-
-export type Readiness = {
+export type ReadinessResponse = {
   status: {
     status: string,
     message: string
