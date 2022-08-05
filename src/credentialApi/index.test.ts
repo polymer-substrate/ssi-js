@@ -1,6 +1,8 @@
 const SSI = require('../../dist')
 const nock = require('nock')
 
+const hostname = 'http://localhost:8080'
+
 const mockCreateCredentialRequest = {
   "issuer": "did:key:z6MkjbAqF37PNPNXBdrZw4Bsk6PjCCmFi8CcVCo9VNr3ACDR",
   "subject": "did:key:z6MkjbAqF37PNPNXBdrZw4Bsk6PjCCmFi8CcVCo9VNr3ACDR",
@@ -12,7 +14,7 @@ const mockCreateCredentialRequest = {
 describe('Credentials resource', () => {
   test('createCredential creates and returns a new credential', async () => {
     // Set up the mock request
-    const scope = nock('http://localhost:8080')
+    const scope = nock(hostname)
       .put('/v1/credentials', mockCreateCredentialRequest)
       .reply(200, { credential: "hello TBD" })
 
@@ -26,7 +28,7 @@ describe('Credentials resource', () => {
 
   test('getCredential returns a credential', async () => {
     // Set up the mock request
-    const scope = nock('http://localhost:8080')
+    const scope = nock(hostname)
       .get('/v1/credentials/c5b9895c-8422-4e69-b1e6-6240b6949c1d')
       .reply(200, { credential: "hello TBD" })
 
@@ -40,7 +42,7 @@ describe('Credentials resource', () => {
 
   test('getCredentialsByIssuer returns a list of credentials', async () => {
     // Set up the mock request
-    const scope = nock('http://localhost:8080')
+    const scope = nock(hostname)
       .get('/v1/credentials?issuer=did:key:z6MkjbAqF37PNPNXBdrZw4Bsk6PjCCmFi8CcVCo9VNr3ACDR')
       .reply(200, { credentials: ["hello TBD"] })
 
@@ -54,7 +56,7 @@ describe('Credentials resource', () => {
 
   test('getCredentialsBySchema returns a list of credentials', async () => {
     // Set up the mock request
-    const scope = nock('http://localhost:8080')
+    const scope = nock(hostname)
       .get('/v1/credentials?schema=c5c5dba5-df2b-4632-adc2-263cab249fd7')
       .reply(200, { credentials: ["hello TBD"] })
 
@@ -68,13 +70,27 @@ describe('Credentials resource', () => {
 
   test('getCredentialsBySubject returns a list of credentials', async () => {
     // Set up the mock request
-    const scope = nock('http://localhost:8080')
+    const scope = nock(hostname)
       .get('/v1/credentials?subject=did:key:z6MkjbAqF37PNPNXBdrZw4Bsk6PjCCmFi8CcVCo9VNr3ACDR')
       .reply(200, { credentials: ["hello TBD"] })
 
     // Make the request
     const SSIClient = new SSI();
     await SSIClient.getCredentialsBySubject('did:key:z6MkjbAqF37PNPNXBdrZw4Bsk6PjCCmFi8CcVCo9VNr3ACDR');
+
+    // Assert that the expected request was made.
+    scope.done()
+  })
+
+  test('deleteCredentials deletes a credential', async () => {
+    // Set up the mock request
+    const scope = nock(hostname)
+      .delete('/v1/credentials/c5b9895c-8422-4e69-b1e6-6240b6949c1d')
+      .reply(200, null)
+
+    // Make the request
+    const SSIClient = new SSI();
+    await SSIClient.deleteCredentials('c5b9895c-8422-4e69-b1e6-6240b6949c1d');
 
     // Assert that the expected request was made.
     scope.done()
