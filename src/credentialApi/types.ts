@@ -14,24 +14,24 @@ export type CreateCredentialRequest = {
 }
 
 type Credential = {
-  '@context'?: string[],
-  credentialSchema: {
+  '@context': string[],
+  credentialSchema?: {
     id: string,
     type: string
   }
   credentialStatus?: string,
   credentialSubject: Id & Data,
   evidence?: string[],
-  expirationDate: string,
+  expirationDate?: string,
   id: string,
   issuanceDate: string,
-  issuer?: string,
+  issuer: string,
   proof?: string,
-  refreshService: {
+  refreshService?: {
     id: string,
     type: string
   },
-  termsOfUse: {
+  termsOfUse?: {
     id: string,
     profile: string,
     prohibition: string[],

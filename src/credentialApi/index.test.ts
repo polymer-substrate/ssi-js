@@ -42,7 +42,7 @@ describe('Credentials resource', () => {
     // Set up the mock request
     const scope = nock('http://localhost:8080')
       .get('/v1/credentials?issuer=did:key:z6MkjbAqF37PNPNXBdrZw4Bsk6PjCCmFi8CcVCo9VNr3ACDR')
-      .reply(200, { credentials: "hello TBD" })
+      .reply(200, { credentials: ["hello TBD"] })
 
     // Make the request
     const SSIClient = new SSI();
@@ -56,7 +56,7 @@ describe('Credentials resource', () => {
     // Set up the mock request
     const scope = nock('http://localhost:8080')
       .get('/v1/credentials?schema=c5c5dba5-df2b-4632-adc2-263cab249fd7')
-      .reply(200, { credentials: "hello TBD" })
+      .reply(200, { credentials: ["hello TBD"] })
 
     // Make the request
     const SSIClient = new SSI();
@@ -70,7 +70,7 @@ describe('Credentials resource', () => {
     // Set up the mock request
     const scope = nock('http://localhost:8080')
       .get('/v1/credentials?subject=did:key:z6MkjbAqF37PNPNXBdrZw4Bsk6PjCCmFi8CcVCo9VNr3ACDR')
-      .reply(200, { credentials: "hello TBD" })
+      .reply(200, { credentials: ["hello TBD"] })
 
     // Make the request
     const SSIClient = new SSI();
