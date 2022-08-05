@@ -1,4 +1,4 @@
-import { DidMethods, Did, DidDocument } from './types'
+import { DidMethods, KeyTypes, Did, DidDocument } from './types'
 import { Base } from '../base'
 
 const resource = 'v1/dids'
@@ -8,7 +8,7 @@ export class DecentralizedIdentityAPI extends Base {
     return this.request<DidMethods>(resource)
   }
 
-  createDid(method: string, keyType: string) {
+  createDid(method: string, keyType: KeyTypes) {
     const body = {
       keyType: keyType
     }
