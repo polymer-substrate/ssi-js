@@ -11,7 +11,7 @@ const mockCreateCredentialRequest = {
   }
 }
 
-describe('Credentials resource', () => {
+describe('CredentialAPI', () => {
   test('createCredential creates and returns a new credential', async () => {
     // Set up the mock request
     const scope = nock(hostname)

@@ -1,14 +1,11 @@
-export type DidService = {
+export type DidMethods = {
   didMethods: string[],
-}
-
-export type DidInput = {
-  keyType: 'Ed25519' | 'secp256k1',
 }
 
 export type DidDocument = {
   did: {
     '@context': string,
+    alsoKnownAs?: string,
     id: string,
     verificationMethod: {
       id: string,

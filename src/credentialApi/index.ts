@@ -3,7 +3,7 @@ import { Base } from '../base'
 
 const resource = 'v1/credentials'
 
-export class Credentials extends Base {
+export class CredentialAPI extends Base {
   createCredential(requestBody: CreateCredentialRequest) {
     return this.request<Credential>(resource, {
       method: 'PUT',
