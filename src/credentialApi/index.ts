@@ -28,7 +28,7 @@ export class Credentials extends Base {
   }
 
   deleteCredentials(id: string) {
-    return this.request<CredentialResponse>(`${resource}/${id}`, {
+    return this.request<string | null>(`${resource}/${id}`, {
       method: 'DELETE'
     })
   }
