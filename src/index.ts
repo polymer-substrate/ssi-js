@@ -2,7 +2,7 @@ import { Base } from './base'
 import { HealthCheck } from './healthCheck'
 import { Readiness } from './readiness'
 import { DecentralizedIdentityAPI } from './decentralizedIdentityApi'
-import { Schemas } from './schemas'
+import { SchemaAPI } from './schemaAPI'
 import { CredentialAPI } from './credentialApi';
 import { KeyStoreAPI } from './keyStoreApi';
 
@@ -19,7 +19,7 @@ function applyMixins(derivedCtor: any, baseCtors: any[]) {
 }
 
 class SSI extends Base { }
-interface SSI extends HealthCheck, Readiness, DecentralizedIdentityAPI, KeyStoreAPI, Schemas, CredentialAPI { }
-applyMixins(SSI, [HealthCheck, Readiness, DecentralizedIdentityAPI, KeyStoreAPI, Schemas, CredentialAPI])
+interface SSI extends HealthCheck, Readiness, DecentralizedIdentityAPI, KeyStoreAPI, SchemaAPI, CredentialAPI { }
+applyMixins(SSI, [HealthCheck, Readiness, DecentralizedIdentityAPI, KeyStoreAPI, SchemaAPI, CredentialAPI])
 
 export default SSI
