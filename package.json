@@ -23,6 +23,6 @@
     "nock": "^13.2.9"
   },
   "dependencies": {
-    "isomorphic-unfetch": "^3.1.0"
+    "cross-fetch": "^3.1.5"
   }
 }
